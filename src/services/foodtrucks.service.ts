@@ -6,12 +6,15 @@ export const getFoodTrucksByCoordinates = async (
   longitude: number,
   limit?: number
 ) => {
-  const baseURL = `http://localhost:3000/food-trucks`;
   const {
     data: { list: foodTrucks },
-  } = (await axios.get(`${baseURL}?lat=${latitude}&lon=${longitude}${limit ? `&lim=${limit}` : ""}`)) as AxiosResponse<{ done: boolean; list: FoodTruck[] }>;
-  
+  } = (await axios.get(
+    `${
+      process.env.REACT_APP_BASE_API_URL
+    }/food-trucks?lat=${latitude}&lon=${longitude}${limit ? `&lim=${limit}` : ""}`
+  )) as AxiosResponse<{ done: boolean; list: FoodTruck[] }>;
+
   console.log(foodTrucks);
-  
+
   return foodTrucks;
 };

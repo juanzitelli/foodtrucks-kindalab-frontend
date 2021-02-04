@@ -1,6 +1,6 @@
 import React from 'react';
-import Map from './components/Map'
-import LocationForm from './components/LocationForm';
+import Map from './components/Map/index'
+import LocationForm from './components/LocationForm/index';
 import styled from 'styled-components';
 
 const App = () => {

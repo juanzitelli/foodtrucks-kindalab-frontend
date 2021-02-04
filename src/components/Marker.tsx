@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { FiMapPin } from "react-icons/fi";
 interface Props {
-	isLocation: boolean;
 	text: string;
 	lat: number;
 	lng: number;
@@ -19,12 +18,13 @@ const Container = styled.div<{}>`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	opacity: 0.9;
 	box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.75);
 	-webkit-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.75);
 	-moz-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.75);
 `
 
-const Marker = ({ isLocation, text, lat, lng }: Props) => {
+const Marker = ({ text, lat, lng }: Props) => {
 	return (
 		<Container>
 			<FiMapPin fontSize={25}></FiMapPin>{text}

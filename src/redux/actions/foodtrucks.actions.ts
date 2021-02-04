@@ -2,7 +2,7 @@ import { getFoodTrucksByCoordinates } from "../../services/foodtrucks.service";
 import { FoodTruck } from "../../types/FoodTruck";
 import { FoodTruckReducerTypes } from "./../reducers/foodtrucks.reducer";
 
-const foodTrucksFetched = (foodTrucks: FoodTruck[]) => ({
+export const foodTrucksFetched = (foodTrucks: FoodTruck[]) => ({
   type: FoodTruckReducerTypes.FoodTrucksFetched,
   payload: foodTrucks,
 });
