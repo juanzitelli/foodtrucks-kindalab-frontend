@@ -7,14 +7,20 @@ const App = () => {
 
   const MainContainer = styled.main`
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     flex-direction: column;
-    height: 100vh;
+    max-height: 100vh ;
+    max-width: 100vw ;
+    @media(min-width: 760px) {
+      flex-direction: row;
+    }
   `
 
   return (
     <MainContainer>
-      <Map />
       <LocationForm />
+      <Map />
     </MainContainer>
   );
 }
