@@ -1,37 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tests on LocationForm component Should match snapshot 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [MockFunction],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Subscription {
-        "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [MockFunction],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": null,
-      },
-    }
-  }
+<form
+  className="sc-bdfBwQ cnWvbD"
+  onSubmit={[Function]}
 >
-  <LocationForm />
-</ContextProvider>
+  <div
+    className="sc-gsTCUz jXKszp"
+  >
+    <label
+      htmlFor="location"
+    >
+      Location
+    </label>
+    <div>
+      <input
+        autoComplete="off"
+        className="sc-hKgILt ePrkBg"
+        id="location"
+        name="location"
+        onChange={[Function]}
+        placeholder="1250 5th Avenue, San Francisco"
+        type="text"
+        value=""
+      />
+      <button
+        className="sc-eCssSg gtCJVU"
+        onClick={[Function]}
+      >
+        Clear
+      </button>
+    </div>
+  </div>
+  <div
+    className="sc-jSgupP krqAwW"
+  />
+  <div
+    className="sc-gsTCUz jXKszp"
+  >
+    <label
+      htmlFor="limit"
+    >
+      Results quantity
+    </label>
+    <input
+      className="sc-hKgILt ePrkBg"
+      id="limit"
+      min={1}
+      name="limit"
+      onChange={[Function]}
+      type="number"
+      value={3}
+    />
+  </div>
+  <p>
+    ...Loading
+  </p>
+</form>
 `;

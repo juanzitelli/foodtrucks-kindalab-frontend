@@ -8,13 +8,25 @@ import LocationForm from '../../components/LocationForm/index';
 const middlewares = [thunk];
 const createMockStore = configureStore(middlewares);
 const initState = {
-	foodTrucks: []
+
+	foodTrucks: {
+		foodTrucks: [],
+
+	},
+
+	places: {
+		selectedPrediction: null,
+		predictions: []
+	}
+	, ui: {
+		foodTrucksLoaded: false,
+	}
 };
 const mockStore = createMockStore(initState)
 mockStore.dispatch = jest.fn();
 
 describe('Tests on LocationForm component', () => {
-	const wrapper = shallow(
+	const wrapper = mount(
 		<Provider store={mockStore}>
 			<LocationForm />
 		</Provider>)
