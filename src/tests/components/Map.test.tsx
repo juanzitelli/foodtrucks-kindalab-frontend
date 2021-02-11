@@ -8,15 +8,25 @@ import Map from '../../components/Map';
 const middlewares = [thunk];
 const createMockStore = configureStore(middlewares);
 const initState = {
-	foodTrucks: []
+
+	foodTrucks: {
+		foodTrucks: [],
+	},
+	places: {
+		selectedPrediction: null,
+		predictions: []
+	}, 
+	ui: {
+		foodTrucksLoaded: false,
+	}
 };
 const mockStore = createMockStore(initState)
 mockStore.dispatch = jest.fn();
 
 describe('Tests on Map component', () => {
-	const wrapper = shallow(
+	const wrapper = mount(
 		<Provider store={mockStore}>
-			<Map  />
+			<Map />
 		</Provider>)
 	test('Should match snapshot', async () => {
 		expect(wrapper).toMatchSnapshot();
