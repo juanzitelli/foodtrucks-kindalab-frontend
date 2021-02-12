@@ -14,7 +14,9 @@ const useForm = <T>(
     setFormState(initialState);
   };
 
-  const handleInputChange = ({currentTarget,}: React.FormEvent<HTMLInputElement>): void => {
+  const handleInputChange = ({
+    currentTarget,
+  }: React.FormEvent<HTMLInputElement>): void => {
     setFormState({
       ...formState,
       [currentTarget.name]: currentTarget.value,
