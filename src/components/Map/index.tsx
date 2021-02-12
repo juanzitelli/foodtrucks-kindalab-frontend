@@ -1,16 +1,15 @@
 import React from 'react'
-import Marker from './../Marker';
-import { RootStateOrAny, useSelector } from 'react-redux'
-import { FoodTruck } from './../../types/FoodTruck'
-import GoogleMapReact from 'google-map-react';
+import Marker from './components/Marker/index';import GoogleMapReact from 'google-map-react';
 import _ from 'lodash'
+import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { MapContainer } from './styles/MapContainer';
 
 const Map = () => {
 
-	const { foodTrucks } = useSelector<RootStateOrAny, { foodTrucks: FoodTruck[] }>(state => state.foodTrucks)
+	const { foodTrucks } = useTypedSelector(state => state.foodTrucks)
 
 	return (
-		<div style={{ height: '60vh', width: '100%' }}>
+		<MapContainer>
 			<GoogleMapReact
 				bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY as string }}
 				defaultCenter={{
@@ -21,13 +20,15 @@ const Map = () => {
 			>
 				{
 					foodTrucks !== [] ? foodTrucks.map(foodTruck => <Marker
+						key={foodTruck.objectid}
+						id={foodTruck.objectid}
 						lat={_.toNumber(foodTruck.latitude)}
 						lng={_.toNumber(foodTruck.longitude)}
 						text={`${foodTruck.applicant}`}
 					/>) : <h1>Hello</h1>
 				}
 			</GoogleMapReact>
-		</div>
+		</MapContainer>
 	)
 }
 
