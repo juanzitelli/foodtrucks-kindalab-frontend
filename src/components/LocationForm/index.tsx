@@ -38,16 +38,20 @@ const LocationForm = () => {
 	const { foodTrucksLoaded } = useTypedSelector(state => state.ui)
 
 	useEffect(() => {
-		dispatch(startFetchingPlaces(location, placesPredictionsLimit))
+		if (location.length > 1) {
+			dispatch(startFetchingPlaces(location, placesPredictionsLimit))
+		}
 	}, [location, limit, dispatch])
 
-	const formSubmitHandler = async (event: React.SyntheticEvent) => {
+	const formSubmitHandler = async (event: React.FormEvent) => {
 		event.preventDefault();
-		const results = await geocodeByAddress(location)
-		const { lat, lng } = await getLatLng(results[0])	
-		
-		dispatch(startFetchingFoodTrucks(lat, lng, limit))
-		
+		try {
+			const results = await geocodeByAddress(location)
+			const { lat, lng } = await getLatLng(results[0])
+			dispatch(startFetchingFoodTrucks(lat, lng, limit))
+		} catch (error) {
+			console.error(error)
+		}
 	}
 
 	const predictionClickHandler = (prediction: PredictionType) => {
@@ -62,7 +66,7 @@ const LocationForm = () => {
 	}
 
 	return <>
-		<StyledForm onSubmit={formSubmitHandler}>
+		<StyledForm id="locationForm" name="locationForm" onSubmit={formSubmitHandler}>
 			<FormGroup>
 				<label htmlFor="location">Location</label>
 				<div>
@@ -74,7 +78,7 @@ const LocationForm = () => {
 			<PredictionContainer hasPredictions={!_.isUndefined(predictions)}>
 				{
 					!_.isUndefined(predictions) && (predictions as PredictionType[]).map(prediction => {
-						return prediction ? <Prediction prediction={prediction} onClickHandler={() => predictionClickHandler(prediction)} /> : null
+						return prediction ? <Prediction key={prediction.place_id} prediction={prediction} onClickHandler={() => predictionClickHandler(prediction)} /> : null
 					})
 				}
 			</PredictionContainer>

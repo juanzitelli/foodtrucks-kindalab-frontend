@@ -6,11 +6,12 @@ interface Props {
 	text: string;
 	lat: number;
 	lng: number;
+	id: string;
 }
 
-const Marker = ({ text, lat, lng }: Props) => {
+const Marker = ({ text, lat, lng, id }: Props) => {
 	return (
-		<MarkerContainer>
+		<MarkerContainer id={id}>
 			<FiMapPin fontSize={25}></FiMapPin>{text}
 		</MarkerContainer>
 	)

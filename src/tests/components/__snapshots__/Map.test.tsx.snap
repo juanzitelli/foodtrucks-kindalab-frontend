@@ -56,7 +56,56 @@ exports[`Tests on Map component Should match snapshot 1`] = `
             "width": "100%",
           }
         }
-      />
+      >
+        <div
+          key=".$934620"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "height": 0,
+              "left": 118.1696767732501,
+              "position": "absolute",
+              "top": -373.7990712947212,
+              "width": 0,
+            }
+          }
+        >
+          <div
+            className="sc-bdfBwQ frFkfV"
+            id="934620"
+          >
+            <svg
+              fill="none"
+              fontSize={25}
+              height="1em"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                key="0"
+              />
+              <circle
+                cx="12"
+                cy="10"
+                key="1"
+                r="3"
+              />
+            </svg>
+            May Catering
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

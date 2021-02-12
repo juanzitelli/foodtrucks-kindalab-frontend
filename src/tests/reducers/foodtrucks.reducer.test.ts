@@ -43,12 +43,13 @@ const testFoodTruck: FoodTruck = {
 const testFoodTrucks = [testFoodTruck];
 
 describe("Tests on FoodTrucks Reducer", () => {
+  const testInitialState = {
+    foodTrucks: [],
+  };
   test("Should return a new state with the given parameters", () => {
-	const testInitialState = {
-		foodTrucks: []
-	}
-	const testAction = foodTrucksFetched(testFoodTrucks)
-	const result = foodTrucksReducer(testInitialState, testAction);
-	expect(result).toEqual({ foodTrucks: testFoodTrucks});
+    const testAction = foodTrucksFetched(testFoodTrucks);
+    const result = foodTrucksReducer(testInitialState, testAction);
+    expect(result).toEqual({ foodTrucks: testFoodTrucks });
   });
+
 });

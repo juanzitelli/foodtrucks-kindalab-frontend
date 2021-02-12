@@ -8,10 +8,10 @@ export enum PlacesReducerTypes {
   PredictionCleared = "[Places] Prediction Cleared",
 }
 
-type PlacesAction = Action<PlacesReducerTypes> & { payload: Prediction[] };
+type PlacesAction = Action<PlacesReducerTypes> & { payload?: Prediction[] | Prediction };
 
 // State
-type PlacesReducerState = {
+export type PlacesReducerState = {
   predictions: Prediction[];
   selectedPrediction: Prediction | null;
 };
@@ -30,12 +30,12 @@ export const placesReducer = (
     case PlacesReducerTypes.PredictionsFetched:
       return {
         ...state,
-        predictions: action.payload,
+        predictions: action.payload as Prediction[],
       };
     case PlacesReducerTypes.PredictionSelected:
       return {
         ...state,
-        selectedPrediction: action.payload,
+        selectedPrediction: action.payload as Prediction,
       };
     case PlacesReducerTypes.PredictionCleared:
       return {
