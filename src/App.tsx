@@ -6,14 +6,15 @@ import styled from 'styled-components';
 const App = () => {
 
   const MainContainer = styled.main`
-    display: flex;
+    display: grid;
     justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
     max-height: 100vh ;
     max-width: 100vw ;
     @media(min-width: 760px) {
-      flex-direction: row;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: 1fr;
     }
   `
 
