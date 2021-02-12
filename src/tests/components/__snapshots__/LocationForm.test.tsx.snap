@@ -3,6 +3,8 @@
 exports[`Tests on LocationForm component Should match snapshot 1`] = `
 <form
   className="sc-bdfBwQ cnWvbD"
+  id="locationForm"
+  name="locationForm"
   onSubmit={[Function]}
 >
   <div
@@ -53,8 +55,10 @@ exports[`Tests on LocationForm component Should match snapshot 1`] = `
       value={3}
     />
   </div>
-  <p>
-    ...Loading
-  </p>
+  <div>
+    <p>
+      Find and select a location to search for food trucks!
+    </p>
+  </div>
 </form>
 `;

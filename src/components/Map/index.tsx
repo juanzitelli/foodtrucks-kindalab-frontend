@@ -20,6 +20,8 @@ const Map = () => {
 			>
 				{
 					foodTrucks !== [] ? foodTrucks.map(foodTruck => <Marker
+						key={foodTruck.objectid}
+						id={foodTruck.objectid}
 						lat={_.toNumber(foodTruck.latitude)}
 						lng={_.toNumber(foodTruck.longitude)}
 						text={`${foodTruck.applicant}`}
