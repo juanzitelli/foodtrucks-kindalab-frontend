@@ -10,3 +10,4 @@ export const FormGroup = styled.div`
 	justify-content: space-evenly;
   }
 `;
+  
